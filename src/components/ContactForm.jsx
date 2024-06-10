@@ -30,7 +30,7 @@ const ContactForm = (props) => {
       };
 
       props.addContact(newContact);
-      console.log(name, phoneNumber, location);
+
       setName("");
       setPhoneNumber("");
       setLocation("");
@@ -43,7 +43,7 @@ const ContactForm = (props) => {
         <Form.Group className="mb-3">
           <Form.Label>Full Name</Form.Label>
           <Form.Control
-            className="w-50"
+            // className="w-50"
             type="text"
             value={name}
             onChange={handleNameChange}
@@ -54,7 +54,7 @@ const ContactForm = (props) => {
         <Form.Group className="mb-3">
           <Form.Label>Phone Number</Form.Label>
           <Form.Control
-            className="w-50"
+            // className="w-50"
             value={phoneNumber}
             onChange={handlePhoneNumberChange}
             type="number"
@@ -65,7 +65,7 @@ const ContactForm = (props) => {
         <Form.Group className="mb-3">
           <Form.Label>Location</Form.Label>
           <Form.Control
-            className="w-50"
+            // className="w-50"
             type="text"
             value={location}
             onChange={handleLocationChange}

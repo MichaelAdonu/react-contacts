@@ -30,23 +30,45 @@ function App() {
       location: "Santasi",
       id: uuid(),
     },
+    {
+      name: "Enam Okailey Tetteh-Quaye",
+      phoneNumber: +233545887434,
+      location: "Tema",
+      id: uuid(),
+    },
   ]);
 
   const handleAddContact = (newContact) => {
     setContactusers([...contactUsers, newContact]);
   };
 
+  const editContact = (contactId, newContactDetails) => {
+    let newArray = contactUsers.map((contact) => {
+      if (contact.id === contactId) {
+        return newContactDetails;
+      } else {
+        return contact;
+      }
+    });
+    setContactusers(newArray);
+  };
+
+  const deleteContact = (contactId) => {
+    let newArray = contactUsers.filter((contact) => contact.id !== contactId);
+    setContactusers(newArray);
+  };
   return (
     <Container>
       <Row>
         <Col>
           <ContactForm addContact={handleAddContact} />
         </Col>
-      </Row>
-      <br />
-      <Row>
         <Col>
-          <Contacts key={contactUsers.id} contactUsers={contactUsers} />
+          <Contacts
+            editContact={editContact}
+            deleteContact={deleteContact}
+            contactUsers={contactUsers}
+          />
         </Col>
       </Row>
     </Container>
